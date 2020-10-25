@@ -1,0 +1,19 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+package_reboot_if_required: false
+
+manage-resolv-conf: true
+resolv_conf:
+  nameservers:
+    - "8.8.8.8"
+    - "8.8.4.4"
+
+swap:
+  filename: /swap.img
+  size: "auto" # or size in bytes
+  maxsize: 4294967296 # size in bytes
+
+packages:
+  - ca-certificates
