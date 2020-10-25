@@ -27,7 +27,8 @@ write_files:
     permissions: 0644
     owner: root
     content: |
-      ADMIN_PASSWORD=quai6Piexaiviequ
+      #TODO ADMIN_PASSWORD has to be generated not passed
+      ADMIN_PASSWORD=lairieSh8aire8uxee
       SEED_JOB_GIT_REPO=fr123k/jocker
       SEED_JOB_GROOVY_FILE=shared-library/pipeline-jobs.groovy
       JENKINS_MASTER=http://172.17.0.1:80
