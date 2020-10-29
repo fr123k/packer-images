@@ -22,7 +22,7 @@
             },
             "instance_type": "t2.medium",
             "ssh_username": "ubuntu",
-            "security_group_id": "sg-067ea8af17af0a5ca",
+            "security_group_id": "sg-344fe64c",
             "ami_name": "jenkins-aws-{{isotime \"2006-01-02\"}}",
             "user_data_file": "cloud-init/cloud-init.yaml"
         }
