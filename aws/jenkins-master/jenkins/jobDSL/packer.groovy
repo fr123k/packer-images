@@ -1,4 +1,6 @@
-multibranchPipelineJob("Packer") {
+folder("Packer")
+folder("Packer/aws")
+multibranchPipelineJob("Packer/aws/jenkins-master") {
     orphanedItemStrategy {
         discardOldItems {
             numToKeep(0)
@@ -36,7 +38,7 @@ multibranchPipelineJob("Packer") {
 
     factory {
         workflowBranchProjectFactory {
-            scriptPath('jenkins/Jenkinsfile')
+            scriptPath('aws/jenkins-master/jenkins/Jenkinsfile')
         }
     }
 
