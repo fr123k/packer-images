@@ -1,0 +1,42 @@
+{
+    "variables": {
+        "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+        "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}"
+    },
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "access_key": "{{user `aws_access_key`}}",
+            "secret_key": "{{user `aws_secret_key`}}",
+            "region": "eu-west-1",
+            "source_ami_filter": {
+                "filters": {
+                    "virtualization-type": "hvm",
+                    "name": "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20200129",
+                    "root-device-type": "ebs"
+                },
+                "owners": [
+                    "099720109477"
+                ],
+                "most_recent": true
+            },
+            "instance_type": "t2.medium",
+            "ssh_username": "ubuntu",
+            "security_group_id": "sg-344fe64c",
+            "ami_name": "jenkins-aws-{{isotime \"2006-01-02\"}}",
+            "user_data_file": "cloud-init/cloud-init.yaml"
+        }
+    ],
+    "provisioners": [
+        {
+          "type": "shell",
+          "inline": [
+            "/usr/bin/cloud-init status --wait",
+            "sudo systemctl stop cloud-init",
+            "cat /var/log/cloud-init-output.log",
+            "sudo ls -lha /var/lib/cloud/",
+            "sudo rm -rfv /var/lib/cloud/"
+          ]
+        }
+    ]
+}

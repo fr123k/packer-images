@@ -1,0 +1,14 @@
+node ("packer") {
+    stage('Checkout') {
+        cleanWs()
+        checkout scm
+    }
+    stage('Debug') {
+        dir('aws/jenkins-master') {
+            withCredentials([usernamePassword(credentialsId: 'aws-key-credentials', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+                sh("printenv | sort")
+                sh("make build")
+            }
+        }
+    }
+}
