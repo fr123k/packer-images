@@ -23,8 +23,20 @@
             "instance_type": "t2.medium",
             "ssh_username": "ubuntu",
             "security_group_id": "sg-344fe64c",
-            "ami_name": "jenkins-aws-{{isotime \"2006-01-02\"}}",
+            "tags": [
+                "BUILD_TS_FORMATTED={{ isotime \"02-Jan-06 03-04-05\" }}",
+                "BUILD_TS_UNIX={{ timestamp }}"
+            ],
+            "ami_name": "vault-{{isotime \"02-Jan-06 03-04-05\"}}",
             "user_data_file": "cloud-init/cloud-init.yaml"
+        },
+        {
+            "type": "vagrant",
+            "communicator": "ssh",
+            "source_path": "ubuntu/bionic64",
+            "provider": "virtualbox",
+            "template": "vagrantfile.template",
+            "add_force": true
         }
     ],
     "provisioners": [

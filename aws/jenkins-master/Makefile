@@ -5,4 +5,4 @@ validate:
 	packer validate jenkins.json
 
 build: validate
-	packer build jenkins.json
+	packer build -only=amazon-ebs jenkins.json
