@@ -1,11 +1,8 @@
 export VAGRANT_EXPERIMENTAL ?= cloud_init,disks
+PACKER_BUILDER ?= amazon-ebs.vault
+PACKER_FILE ?= vault.pkr.hcl
 validate:
-	echo "AWS_ACCESS_KEY_ID ${AWS_ACCESS_KEY_ID}"
-	echo "AWS_SECRET_ACCESS_KEY ${AWS_SECRET_ACCESS_KEY}"
-	packer validate vault.json
+	packer validate -only=${PACKER_BUILDER} ${PACKER_FILE}
 
 build: validate
-	packer build -only=amazon-ebs vault.json
-
-vagrant-build:
-	packer build -only=vagrant ./vault.json
+	PACKER_LOG=1 packer build --debug -only=${PACKER_BUILDER} ${PACKER_FILE}

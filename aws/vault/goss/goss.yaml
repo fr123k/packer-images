@@ -1,0 +1,25 @@
+# package:
+#   vault:
+#     installed: true
+port:
+  tcp:8200:
+    listening: true
+service:
+  vault:
+    enabled: true
+    running: true
+user:
+  vault:
+    exists: true
+    uid: 999
+    gid: 999
+    groups:
+    - vault
+    home: /home/vault
+group:
+  vault:
+    exists: true
+    gid: 999
+process:
+  vault:
+    running: true

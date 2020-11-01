@@ -1,0 +1,15 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+  config.vm.define "source", autostart: false do |source|
+	  source.vm.box = "ubuntu/bionic64"
+    source.vm.cloud_init :user_data, content_type: "text/cloud-config", path: "../../cloud-init/cloud-init.yaml"
+	  source.ssh.insert_key = false
+  end
+  config.vm.define "output" do |output|
+    output.vm.box = "packer_vagrant"
+    output.vm.box_url = "file://package.box"
+    output.ssh.insert_key = false
+  end
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+end
