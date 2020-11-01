@@ -28,8 +28,9 @@ write_files:
     owner: root
     content: |
       ADMIN_PASSWORD=quai6Piexaiviequ
-      SEED_JOB_GIT_REPO=fr123k/jocker-agents
-      SEED_JOB_GROOVY_FILE=jenkins/pipeline-jobs.groovy
+      SEED_JOB_GIT_REPO=fr123k/jocker
+      SEED_JOB_GROOVY_FILE=shared-library/pipeline-jobs.groovy
+      JENKINS_MASTER=http://172.17.0.1:80
       JOBS_LIST=eyJqb2JzIjogW3sgInJlcG9zaXRvcnkiOiJodHRwczovL2dpdGh1Yi5jb20vZnIxMjNrL2plbmtpbnMtam9icyIsICJqb2JEU0xSZXZpc2lvbiI6ICJtYWluIiwgImpvYkRTTFBhdGgiOiJqZW5raW5zL2F3cy9qb2JEU0wiLCAicmVtb3ZlZEpvYkFjdGlvbiI6IklHTk9SRSIgfV19
     # SEED_JOB_GIT_REPO=fr123k/jenkins-aws-pulumi
     # SEED_JOB_GROOVY_FILE=jenkins/pipeline-jobs.groovy
