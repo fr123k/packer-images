@@ -23,10 +23,10 @@
             "instance_type": "t2.medium",
             "ssh_username": "ubuntu",
             "security_group_id": "sg-344fe64c",
-            "tags": [
-                "BUILD_TS_FORMATTED={{ isotime \"02-Jan-06 03-04-05\" }}",
-                "BUILD_TS_UNIX={{ timestamp }}"
-            ],
+            "tags": {
+                "BUILD_TS_FORMATTED": "{{ isotime \"02-Jan-06 03-04-05\" }}",
+                "BUILD_TS_UNIX": "{{ timestamp }}"
+            },
             "ami_name": "jenkins-aws-{{isotime \"02-Jan-06 03-04-05\"}}",
             "user_data_file": "cloud-init/cloud-init.yaml"
         }
