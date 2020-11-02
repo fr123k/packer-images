@@ -5,7 +5,7 @@ node ("packer") {
     }
     stage('Debug') {
         dir('aws/vault') {
-            withCredentials([usernamePassword(credentialsId: 'aws-key-credentials', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+            withCredentials([usernamePassword(credentialsId: 'aws-key-credentials', passwordVariable: 'PKR_VAR_aws_secret_key', usernameVariable: 'PKR_VAR_aws_access_key')]) {
                 sh("printenv | sort")
                 sh("make build")
             }

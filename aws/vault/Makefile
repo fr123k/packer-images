@@ -5,4 +5,4 @@ validate:
 	packer validate -only=${PACKER_BUILDER} ${PACKER_FILE}
 
 build: validate
-	PACKER_LOG=1 packer build --debug -only=${PACKER_BUILDER} ${PACKER_FILE}
+	packer build -only=${PACKER_BUILDER} ${PACKER_FILE}

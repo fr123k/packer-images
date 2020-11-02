@@ -42,7 +42,7 @@ source "amazon-ebs" "vault" {
   }
   ssh_username = "ubuntu"
   tags = {
-    BUILD_TS_FORMATTED = "{{ isotime \"02-Jan-06 03-04-05\" }}"
+    BUILD_TS_FORMATTED = "{{ isotime \"02-01-06_03-04-05\" }}"
     BUILD_TS_UNIX      = "{{ timestamp }}"
   }
   user_data_file = "cloud-init/cloud-init.yaml"
